@@ -13,11 +13,7 @@ console.log(countToMyAge(age));
 
 //Schritt 3: Nutzt eine 'if-else'-Anweisung, um zu überprüfen, ob 'age' größer als 18 ist. Gebt entsprechende Meldungen aus, je nachdem ob die Bedingung erfüllt ist oder nicht.
 function minorCheck(val: number) : string{
-    if(val >= 18){
-        return "Is over 18";
-    }else{
-        return "Is still a minor";
-    }
+    return val >= 18 ? "Is over 18" : "Is still a minor";
 }
 
 document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
@@ -26,7 +22,6 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
     + `
   </div>
 `
-
 //Schritt 4: Deklariert eine Variable 'score' vom Typ 'number' und weist ihr den Wert 0 zu.
 let score:number = 0;
 //Schritt 5: Nutzt eine 'if'-Anweisung, um zu überprüfen, ob 'score' einen Wert hat. Gebt 'Score ist verfügbar.' aus, wenn 'score' einen Wert ungleich 0 hat.
@@ -69,17 +64,32 @@ if(!isAdmin){
 
 let n:number = 5;
 
-function buildArrow (val: number) :void{
-
+function buildTree(val:number):void{
+    let stars : string = "";
+    let spaces : string = "";
     for (let i = 1; i <= val; i++) {
-        let spaces = ' '.repeat(val - i); // Leerzeichen vor den Sternen
-        let stars = '*'.repeat(2 * i - 1); // Sterne
-
+        stars = "";
+        spaces = "";
+        //leerzeichen
+        for (let n = 0; n <= val-i; n++){
+            spaces += ' ';
+        }
+        //sternchen
+        for (let n = 0; n <= i*2-2; n++){
+            stars += "*";
+        }
         console.log(spaces + stars);
     }
-
+        stars = "";
+        spaces = "";
+        for (let n = 0; n <= val-1; n++){
+            spaces += ' ';
+        }
+        stars += "*";
     for (let i = 0; i < val; i++) {
-        console.log(' '.repeat(val - 1) + '*');
+        console.log(spaces + stars);
     }
 }
-console.log(buildArrow(n));
+
+console.log("tree: ");
+buildTree(n);
