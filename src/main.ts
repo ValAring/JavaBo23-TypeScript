@@ -66,3 +66,20 @@ if(isAdmin){
 if(!isAdmin){
     console.log("isAdmin is false");
 }
+
+let n:number = 5;
+
+function buildArrow (val: number) :void{
+
+    for (let i = 1; i <= val; i++) {
+        let spaces = ' '.repeat(val - i); // Leerzeichen vor den Sternen
+        let stars = '*'.repeat(2 * i - 1); // Sterne
+
+        console.log(spaces + stars);
+    }
+
+    for (let i = 0; i < val; i++) {
+        console.log(' '.repeat(val - 1) + '*');
+    }
+}
+console.log(buildArrow(n));
